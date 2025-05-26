@@ -1,0 +1,101 @@
+//html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" class="css">
+</head>
+<body id="body">
+    
+   <div class="random-game-container">
+        <div class="item">
+                <div class="given-number">
+                    <input type="number" placeholder="Given between 0-5" name="number" id="input">
+                </div>
+                <div class="random-number">
+                    <textarea name="" id="textarea"></textarea>
+                </div>
+                <div class="random-number">
+                    <textarea name="" id="output"></textarea>
+                </div>
+                <p id="para"></p>
+                <button id="btn">Hit</button>
+        </div>
+    
+   </div>
+
+
+
+    
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
+
+
+
+
+
+//css
+
+
+.random-game-container{
+    width: 400px;
+    height: 500px;
+    background-color: grey;
+    margin: 0 auto;
+}
+.item{
+    padding: 80px;
+}
+#input{
+    padding: 20px;
+}
+#textarea{
+    padding: 20px;
+}
+.given-number{
+    padding: 10px;
+}
+.random-number{
+    padding: 10px;
+}
+#btn{
+    padding: 10px;
+    width: 100%;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+#output{
+    padding: 10px;
+    width: 100%;
+}
+
+
+//javascript
+const btn = document.querySelector('#btn');
+const input = document.querySelector('#input');
+const textarea = document.querySelector('#textarea');
+const output = document.querySelector('#output');
+const para = document.querySelector('#para');
+var winCount = 0;
+    btn.addEventListener('click',()=>{
+        const givenValue = input.value;
+        const randomNumber = parseInt(Math.random()*5);
+        if(givenValue==randomNumber){
+            textarea.innerHTML="You are win"
+            output.innerHTML="Random was : "+randomNumber
+            winCount++; 
+        }else{
+            textarea.innerHTML="You Lose"
+            output.innerHTML="Random was : "+randomNumber
+        }
+        para.innerHTML="You are win : "+winCount + "times"
+    })
+    
+
+
